@@ -1,0 +1,26 @@
+Question 1: What authentication scheme is used by default in Django Rest Framework's browsable API? How is this managed?
+    HTTP basic is the authentication scheme which is used by default in Django Rest Framework's browsable API. The documentation
+    also mentions session based auth and it is currently included in the settings.py file. The one we just used was HTTP basic though
+    I think. It is managed in the settings.py file.
+
+Question 2: What authentication scheme is used by httpie when querying with the -a or --auth option flag?
+    The default authentication scheme used by httpie is HTTP basic as specified by their documentation
+
+Question 3: What is the difference between Session Authentication and Token Authentication? How is Token Authentication an improvement over Basic Authentication?
+    Session authentication uses cookies to identify users. The cookie is associated with session data which is stored on the server.
+    The user can access this session data through the use of their cookie. In token authentication session data is stored locally
+    on the client and a token is used for authentication.  The benefits of token auth over basic auth includes the fact
+    that tokens are essentially expendable and thus easily replaceable. They can be associated with an account while 
+    also being replaced with very little hassle so long as you are logged in. Sending a token over the internet also
+    I would guess is more secure or at least security minded in contrast to sending a username and password maybe
+    partially because of the first reason
+
+Question 4: Provide a high level summary of what happens during an OAuth2 authentication flow. For instance: bitbucket.org > Log In > Log in with Google. What happens when I click "Log in with Google"?
+Okay so bitbucket (client) first asks the user if they can ask Google (auth/resource server) for OAuth2 permission for the user (resource owner).
+The user then authorizes bitbucket to ask Google to grant authorization through OAuth2 protocol. The user then typically signs into
+Google who authorizes that the user is an individual they know of then Google sends an access token to bitbucket and promises that
+they know the user and the user is associated with that token. The client can now send that token to Google at any time where
+google will check if they know of that token and if that token is associated with the user, if it is still valid, etc.
+
+Question 5: Please provide a link to your code.
+https://github.com/Chase-Warwick/authentication-lab
